@@ -49,7 +49,7 @@
 
         return result;
 
-        }
+    }
         
     function game() {
         let playerScore = 0;
