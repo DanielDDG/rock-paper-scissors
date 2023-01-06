@@ -51,32 +51,32 @@
 
         }
         
-        function game() {
-            let playerScore = 0;
-            let computerScore = 0;
+    function game() {
+        let playerScore = 0;
+        let computerScore = 0;
 
-            for (let i = 0; i < 5; i++) {
-                let roundResult = playRound();
+        for (let i = 0; i < 5; i++) {
+            let roundResult = playRound();
 
-                if (roundResult === 'Win.') {
-                    playerScore++;
-                    console.log('The score is ' + playerScore + '-' + computerScore);
-                } else if (roundResult === 'Loss.') {
-                    computerScore++;
-                    console.log('The score is ' + playerScore + '-' + computerScore);
-                } else {
-                    console.log('The score is ' + playerScore + '-' + computerScore);
-                }
-            }
-
-            if (playerScore > computerScore) {
-                console.log('Congrats! You are the ultimate winner.')
-            } else if (playerScore < computerScore) {
-                console.log('You lose! You are the ultimate loser.')
+            if (roundResult === 'Win.') {
+                playerScore++;
+                console.log('The score is ' + playerScore + '-' + computerScore);
+            } else if (roundResult === 'Loss.') {
+                computerScore++;
+                console.log('The score is ' + playerScore + '-' + computerScore);                
             } else {
-                console.log("It's an ultimate draw!");
+                console.log('The score is ' + playerScore + '-' + computerScore);
             }
-
         }
+
+        if (playerScore > computerScore) {
+            console.log('Congrats! You are the ultimate winner.')
+        } else if (playerScore < computerScore) {                
+            console.log('You lose! You are the ultimate loser.')
+        } else {
+            console.log("It's an ultimate draw!");
+        }
+
+    }
         
         game();
