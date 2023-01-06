@@ -19,11 +19,15 @@
     function getComputerChoice() {
         const choice = ['Rock', 'Paper', 'Scissors'];
         const randomChoice = choice[Math.floor(Math.random() * choice.length)];
+        return randomChoice;
     }
 
     function playRound() {
-        const playerSelection = prompt("Enter Rock, Paper, or Scissors.")
+        let playerSelection = prompt("Enter Rock, Paper, or Scissors.");
+        playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+        console.log(playerSelection);
         const computerSelection = getComputerChoice();
+        console.log(computerSelection);
 
         if (playerSelection === 'Rock' && computerSelection === 'Paper') {
             console.log('You lose! Paper beats Rock.')
@@ -41,9 +45,11 @@
             console.log('A draw! Scissors draws with Scissors.')
         } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
             console.log('You win! Scissors beats Paper.')
-        } else (playerSelection === 'Scissors' && computerSelection === 'Rock') 
+        } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') 
             console.log('You lose! Rock beats Scissors.')
         }
+    
+    playRound();
     
 
     </script>
