@@ -8,16 +8,43 @@
 
     <script>
 
-    // Make an array that holds Rock, Paper, and Scissors.
+    /* Pseudocode:
+    Make an array that holds Rock, Paper, and Scissors.
+    Create function which takes two parameters.
+    Prompt the user to choose Rock, Paper or Scissors.
+    Call getComputerChoice function to have a computerSelection.
+
+    */
 
     function getComputerChoice() {
         const choice = ['Rock', 'Paper', 'Scissors'];
         const randomChoice = choice[Math.floor(Math.random() * choice.length)];
-        console.log(randomChoice);
     }
 
-    getComputerChoice();
+    function playRound() {
+        const playerSelection = prompt("Enter Rock, Paper, or Scissors.")
+        const computerSelection = getComputerChoice();
 
+        if (playerSelection === 'Rock' && computerSelection === 'Paper') {
+            console.log('You lose! Paper beats Rock.')
+        } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
+            console.log('You win! Rock beats Scissors')
+        } else if (playerSelection === 'Rock' && computerSelection === 'Rock') {
+            console.log('A draw! Rock draws with Rock.')
+        } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
+            console.log('You lose! Scissors beats Paper.')
+        } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
+            console.log('You win! Paper beats Rock.')
+        } else if (playerSelection === 'Paper' && computerSelection === 'Paper') {
+            console.log('A draw! Paper draws with Paper.')
+        } else if (playerSelection === 'Scissors' && computerSelection === 'Scissors') {
+            console.log('A draw! Scissors draws with Scissors.')
+        } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
+            console.log('You win! Scissors beats Paper.')
+        } else (playerSelection === 'Scissors' && computerSelection === 'Rock') 
+            console.log('You lose! Rock beats Scissors.')
+        }
+    
 
     </script>
 
