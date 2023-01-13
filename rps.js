@@ -17,27 +17,27 @@ function playRound() {
         console.log('You win! Rock beats Scissors.')
         result = 'Win.'
     } else if (playerSelection === 'Rock' && computerSelection === 'Rock') {
-          console.log('A draw! Rock draws with Rock.')
-         result = 'Draw.'
+        console.log('A draw! Rock draws with Rock.')
+        result = 'Draw.'
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-         console.log('You lose! Scissors beats Paper.')
-         result = 'Loss.'
+        console.log('You lose! Scissors beats Paper.')
+        result = 'Loss.'
     } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-         console.log('You win! Paper beats Rock.')
-          result = 'Win.'
-     } else if (playerSelection === 'Paper' && computerSelection === 'Paper') {
-          console.log('A draw! Paper draws with Paper.')
-          result = 'Draw.'
-     } else if (playerSelection === 'Scissors' && computerSelection === 'Scissors') {
-          console.log('A draw! Scissors draws with Scissors.')
-          result = 'Draw.'
+        console.log('You win! Paper beats Rock.')
+        result = 'Win.'
+    } else if (playerSelection === 'Paper' && computerSelection === 'Paper') {
+        console.log('A draw! Paper draws with Paper.')
+        result = 'Draw.'
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Scissors') {
+        console.log('A draw! Scissors draws with Scissors.')
+        result = 'Draw.'
     } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-          console.log('You win! Scissors beats Paper.')
-         result = 'Win.'
-     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-         console.log('You lose! Rock beats Scissors.')
-         result = 'Loss.'
-     }
+        console.log('You win! Scissors beats Paper.')
+        result = 'Win.'
+    } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
+        console.log('You lose! Rock beats Scissors.')
+        result = 'Loss.'
+    }
 
     return result;
 }
