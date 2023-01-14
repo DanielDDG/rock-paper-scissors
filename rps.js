@@ -1,3 +1,7 @@
+let playerScore = 0;
+let computerScore = 0;
+let rounds = 0;
+
 function getComputerChoice() {
     const choice = ['Rock', 'Paper', 'Scissors'];
     const randomChoice = choice[Math.floor(Math.random() * choice.length)];
@@ -5,70 +9,109 @@ function getComputerChoice() {
 }
 
 function playRound() {
-    let playerSelection = prompt("Enter Rock, Paper, or Scissors.")
     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     const computerSelection = getComputerChoice();
     let result = 'Default.';
 
     if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-        console.log('You lose! Paper beats Rock.')
-        result = 'Loss.'
+        output = 'You lose! Paper beats Rock.';
+        result = 'Loss.';
     } else if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-        console.log('You win! Rock beats Scissors.')
-        result = 'Win.'
+        output = 'You win! Rock beats Scissors.';
+        result = 'Win.';
     } else if (playerSelection === 'Rock' && computerSelection === 'Rock') {
-        console.log('A draw! Rock draws with Rock.')
-        result = 'Draw.'
+        output = 'A draw! Rock draws with Rock.';
+        result = 'Draw.';
     } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-        console.log('You lose! Scissors beats Paper.')
-        result = 'Loss.'
+        output = 'You lose! Scissors beats Paper.';
+        result = 'Loss.';
     } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-        console.log('You win! Paper beats Rock.')
-        result = 'Win.'
+        output = 'You win! Paper beats Rock.';
+        result = 'Win.';
     } else if (playerSelection === 'Paper' && computerSelection === 'Paper') {
-        console.log('A draw! Paper draws with Paper.')
-        result = 'Draw.'
+        output = 'A draw! Paper draws with Paper.';
+        result = 'Draw.';
     } else if (playerSelection === 'Scissors' && computerSelection === 'Scissors') {
-        console.log('A draw! Scissors draws with Scissors.')
-        result = 'Draw.'
+        output = 'A draw! Scissors draws with Scissors.';
+        result = 'Draw.';
     } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-        console.log('You win! Scissors beats Paper.')
-        result = 'Win.'
+        output = 'You win! Scissors beats Paper.';
+        result = 'Win.';
     } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-        console.log('You lose! Rock beats Scissors.')
-        result = 'Loss.'
+        output = 'You lose! Rock beats Scissors.';
+        result = 'Loss.';
     }
 
-    return result;
+return result;
+
 }
+
+// This is being removed for a second.
         
 function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-       let roundResult = playRound();
+    let roundResult = playRound();
 
           if (roundResult === 'Win.') {
             playerScore++;
-            console.log('The score is ' + playerScore + '-' + computerScore);
-            } else if (roundResult === 'Loss.') {
+            rounds++;
+            score.textContent = 'You won! The score is now ' + playerScore + '-' + computerScore + '.';
+          } else if (roundResult === 'Loss.') {
             computerScore++;
-            console.log('The score is ' + playerScore + '-' + computerScore);                
-            } else {
-            console.log('The score is ' + playerScore + '-' + computerScore);
-            }
-    }
-
-          if (playerScore > computerScore) {
-            console.log('Congrats! You are the ultimate winner.')
-          } else if (playerScore < computerScore) {                
-            console.log('You lose! You are the ultimate loser.')
+            rounds++;
+            score.textContent = 'You lost! The score is now ' + playerScore + '-' + computerScore + '.';                
           } else {
-            console.log("It's an ultimate draw!");
+            rounds++;
+            score.textContent = 'Draw! The score stays as ' + playerScore + '-' + computerScore + '.';
+          }
+
+          if (rounds === 5) {
+            rock.removeEventListener('click', rockRound);
+            paper.removeEventListener('click', paperRound);
+            scissors.removeEventListener('click', scissorsRound);
+          } 
+          
+          if (rounds === 5 && playerScore > computerScore) {
+            output = 'Congrats! You are the ultimate winner.'
+            return output;
+          } else if (rounds === 5 && playerScore < computerScore) {             
+            output = 'You lose! You are the ultimate loser.'
+            return output;
+          } else if (rounds === 5 && playerScore === computerScore) {
+            output = "It's an ultimate draw!";
+            return output;
           }
 }
 
 // This is a test. Is the working tree clean?
-        
-game();
+
+function rockRound() {
+
+    playerSelection = 'rock';
+    result.textContent = game();
+
+}
+
+function paperRound() {
+
+    playerSelection = 'paper';
+    result.textContent = game();
+
+}
+
+function scissorsRound() {
+
+    playerSelection = 'scissors';
+    result.textContent = game();
+
+}
+
+
+const buttons = document.querySelectorAll('buttons');
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+let score = document.querySelector('.score');
+let result = document.querySelector('.result');
+rock.addEventListener('click', rockRound);
+paper.addEventListener('click', paperRound);
+scissors.addEventListener('click', scissorsRound);
