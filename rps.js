@@ -51,35 +51,35 @@ return result;
 function game() {
     let roundResult = playRound();
 
-          if (roundResult === 'Win.') {
-            playerScore++;
-            rounds++;
-            score.textContent = 'You won! The score is now ' + playerScore + '-' + computerScore + '.';
-          } else if (roundResult === 'Loss.') {
-            computerScore++;
-            rounds++;
-            score.textContent = 'You lost! The score is now ' + playerScore + '-' + computerScore + '.';                
-          } else {
-            rounds++;
-            score.textContent = 'Draw! The score stays as ' + playerScore + '-' + computerScore + '.';
-          }
+    if (roundResult === 'Win.') {
+        playerScore++;
+        rounds++;
+        score.textContent = 'You won! The score is now ' + playerScore + '-' + computerScore + '.';
+    } else if (roundResult === 'Loss.') {
+        computerScore++;
+        rounds++;
+        score.textContent = 'You lost! The score is now ' + playerScore + '-' + computerScore + '.';                
+    } else {
+        rounds++;
+        score.textContent = 'Draw! The score stays as ' + playerScore + '-' + computerScore + '.';
+    }
 
-          if (rounds === 5) {
-            rock.removeEventListener('click', rockRound);
-            paper.removeEventListener('click', paperRound);
-            scissors.removeEventListener('click', scissorsRound);
-          } 
+    if (rounds === 5) {
+        rock.removeEventListener('click', rockRound);
+        paper.removeEventListener('click', paperRound);
+        scissors.removeEventListener('click', scissorsRound);
+    } 
           
-          if (rounds === 5 && playerScore > computerScore) {
-            output = 'Congrats! You are the ultimate winner.'
-            return output;
-          } else if (rounds === 5 && playerScore < computerScore) {             
-            output = 'You lose! You are the ultimate loser.'
-            return output;
-          } else if (rounds === 5 && playerScore === computerScore) {
-            output = "It's an ultimate draw!";
-            return output;
-          }
+    if (rounds === 5 && playerScore > computerScore) {
+        output = 'Congrats! You are the ultimate winner.'
+        return output;
+    } else if (rounds === 5 && playerScore < computerScore) {             
+        output = 'You lose! You are the ultimate loser.'
+        return output;
+    } else if (rounds === 5 && playerScore === computerScore) {
+        output = "It's an ultimate draw!";
+        return output;
+    }
 }
 
 // This is a test. Is the working tree clean?
